@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">HunterNet</string>
+    <string name="auth_failed">Регистрация провалилась, возможно пароль короткий</string>
+    <string name="auth_successfull">Регистрация успешна!</string>
+    <string name="sign_failed">Не удается войти</string>
+    <string name="sign_successfull">Вы авторизованы!</string>
+    <string name="error">Введите пароль/e-mail</string>
+    <string name="forgot">Вспоминайте</string>
+    <string name="signout">Вы разлогинились</string>
+    <string name="autarisation">Авторизация</string>
+    <string name="usesocialnet">Использовать соцсети</string>
+    <string name="enter">Войти</string>
+    <string name="forgotpassword">Забыли пароль?</string>
+    <string name="email">Email</string>
+    <string name="textemail">derabin@gmail.com</string>
+    <string name="textpassword">Привет</string>
+    <string name="labelpassword">Пароль</string>
+    <string name="show">Показать</string>
+    <string name="wrongpassword">Неверный пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="empty"> </string>
+    <string name="emptyfields">Не все поля заполнены</string>
+</resources>

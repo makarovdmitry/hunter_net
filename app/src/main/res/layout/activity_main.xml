@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible"
+    tools:context="com.example.gron.hunternet.MainActivity">
+
+    <ImageButton
+        android:id="@+id/imageButtonBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAutarisation"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle" android:contentDescription="@string/empty" />
+
+    <Button
+        android:id="@+id/buttonAutarisation"
+        android:layout_width="188dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/autarisation"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="56dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" android:contentDescription="@string/empty" />
+
+    <ImageView
+        android:id="@+id/image_white"
+        android:layout_width="312dp"
+        android:layout_height="312dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="264dp"
+        android:background="@color/myColorWhiteRect"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/buttonUseVkOkFb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_height="312dp"
+        tools:layout_width="312dp" android:contentDescription="@string/empty" />
+
+    <TextView
+        android:id="@+id/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="268dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/email"
+        android:textColor="#4c4c4c"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="16dp"
+        tools:layout_width="30dp" />
+
+    <EditText
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="textEmailAddress"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/textemail"
+        android:textColor="#4c4c4c"
+        android:textSize="20sp"
+        android:labelFor="@+id/textEmail"
+        app:layout_constraintStart_toStartOf="@+id/labelEmail"
+        app:layout_constraintTop_toBottomOf="@+id/labelEmail"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <TextView
+        android:id="@+id/labelPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/labelpassword"
+        android:textColor="#4c4c4c"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEmail" />
+
+    <EditText
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:letterSpacing="0.1"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/textpassword"
+        android:textColor="#4c4c4c"
+        android:textSize="20sp"
+        android:labelFor="@+id/textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelPassword"
+        tools:layout_height="24dp"
+        tools:layout_width="45dp" />
+
+    <Button
+        android:id="@+id/buttonShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="220dp"
+        android:background="@android:color/transparent"
+
+        android:fontFamily="sans-serif"
+        android:gravity="end"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/show"
+        android:textColor="#a9a9a9"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/textPassword"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/labelWrongPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/wrongpassword"
+        android:textColor="#ff5c47"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+
+    <Button
+        android:id="@+id/buttonRegistration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/registration"
+        android:textColor="#4c4c4c"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPassword" />
+
+    <Button
+        android:id="@+id/buttonForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="fill|end"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/forgotpassword"
+        android:textColor="#4c4c4c"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonRegistration"
+        app:layout_constraintStart_toEndOf="@+id/buttonRegistration" />
+
+    <Button
+        android:id="@+id/buttonEnter"
+        android:layout_width="264dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="56dp"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/enter"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="@+id/image_white"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageUseVkOkFb"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:alpha="0.7"
+        android:background="@color/myColorWhiteRect"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+        android:elevation="4dp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="103dp"
+        tools:layout_width="360dp" />
+
+    <Button
+        android:id="@+id/buttonUseVkOkFb"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/usesocialnet"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Использовать соцсети" />
+
+
+    <ImageView
+        android:id="@+id/imageShadow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="4dp"
+        android:alpha="0.7"
+        android:background="@color/myColorBlackRect"
+        android:cropToPadding="false"
+        android:elevation="3dp"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="103dp"
+        tools:layout_width="360dp" android:contentDescription="@string/empty" />
+
+    <ImageButton
+        android:id="@+id/imageButtonVk"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="60dp"
+        android:background="@drawable/rounded_button_vk"
+        android:contentDescription="@string/empty"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/vk" />
+
+    <ImageButton
+        android:id="@+id/imageButtonOk"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/rounded_button_ok"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonFb"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonVk"
+        app:srcCompat="@drawable/ok" android:contentDescription="@string/empty" />
+
+    <ImageButton
+        android:id="@+id/imageButtonFb"
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/rounded_button_fb"
+        android:elevation="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/fb" android:contentDescription="@string/empty" />
+
+</android.support.constraint.ConstraintLayout>

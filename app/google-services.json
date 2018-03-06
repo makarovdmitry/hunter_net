@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "61079967084",
+    "firebase_url": "https://hunternet-b8a7c.firebaseio.com",
+    "project_id": "hunternet-b8a7c",
+    "storage_bucket": "hunternet-b8a7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61079967084:android:a2183429c8a6fc08",
+        "android_client_info": {
+          "package_name": "com.hunternet.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61079967084-pic6o03evsodir7r2074cv6sl3ca92b4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwsoE2Aa0Egveb_CJ3te9lyQNYdOYUPUU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
