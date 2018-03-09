@@ -1,5 +1,6 @@
 package com.example.gron.hunternet;
 
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.EditText;
 
-//import jp.wasabeef.glide.transformations.BlurTransformation;
-//import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,47 +20,95 @@ import android.util.Log;
 import android.widget.Toast;
 import android.text.TextUtils;
 
-import static com.example.gron.hunternet.R.color.emptyfields;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "EmailPassword";
 
-    private TextView labelWrongPassword;
-    private EditText textPassword;
-    private EditText textEmail;
-    private Button buttonUseVkOkFb;
-    private Button buttonShowPassword;
-    private Button buttonForgotPassword;
-    private Button buttonEnter;
-    private Button buttonRegistration;
-    private Button buttonAutarisation;
-    private ImageButton imageButtonVk;
-    private ImageButton imageButtonOk;
-    private ImageButton imageButtonFb;
-    private ImageButton imageButtonBackArrow;
-    private ImageView imageUseVkOkFb;
-    private ImageView imageShadow;
+    @BindView(R.id.labelWrongPassword) TextView labelWrongPassword;
+    @BindView(R.id.textPassword) EditText textPassword;
+    @BindView(R.id.textEmail) EditText textEmail;
+    @BindView(R.id.buttonUseVkOkFb) Button buttonUseVkOkFb;
+
+    @BindView(R.id.buttonShowPassword) Button buttonShowPassword;
+    @BindView(R.id.buttonForgotPassword) Button buttonForgotPassword;
+    @BindView(R.id.buttonEnter) Button buttonEnter;
+    @BindView(R.id.buttonRegistration) Button buttonRegistration;
+    @BindView(R.id.buttonAutarisation) Button buttonAutarisation;
+    @BindView(R.id.imageButtonVk) ImageButton imageButtonVk;
+    @BindView(R.id.imageButtonOk) ImageButton imageButtonOk;
+    @BindView(R.id.imageButtonFb) ImageButton imageButtonFb;
+    @BindView(R.id.imageButtonBackArrow) ImageButton imageButtonBackArrow;
+    @BindView(R.id.imageUseVkOkFb) ImageView imageUseVkOkFb;
+    @BindView(R.id.imageShadow) ImageView imageShadow;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    @OnClick(R.id.buttonForgotPassword)
+    public void onClickButtonForgotPassword(View v) {
+        Toast.makeText(MainActivity.this, R.string.forgot,
+                Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.buttonShowPassword)
+    public void onClickButtonShowPassword(View v) {
+        textPassword.setTransformationMethod(null);
+        buttonShowPassword.setVisibility(View.INVISIBLE);
+    }
+
+    @OnClick(R.id.buttonEnter)
+    public void onClickButtonEnter(View v) {
+        signIn(textEmail.getText().toString(), textPassword.getText().toString());
+    }
+
+    @OnClick(R.id.buttonRegistration)
+    public void onClickButtonRegistration(View v) {
+        createAccount(textEmail.getText().toString(), textPassword.getText().toString());
+    }
+
+    @OnClick({R.id.imageButtonBackArrow, R.id.buttonAutarisation})
+    public void onClickLogOut(View v) {
+        signOut();
+    }
+
+    @OnClick(R.id.buttonUseVkOkFb)
+    public void onClickButtonUseVkOkFb(View v) {
+        buttonUseVkOkFb.setVisibility(View.INVISIBLE);
+        imageUseVkOkFb.setVisibility(View.VISIBLE);
+        imageShadow.setVisibility(View.VISIBLE);
+        imageButtonVk.setVisibility(View.VISIBLE);
+        imageButtonOk.setVisibility(View.VISIBLE);
+        imageButtonFb.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.imageShadow)
+    public void onClickImageShadow(View v) {
+        buttonUseVkOkFb.setVisibility(View.VISIBLE);
+        imageUseVkOkFb.setVisibility(View.INVISIBLE);
+        imageShadow.setVisibility(View.INVISIBLE);
+        imageButtonVk.setVisibility(View.INVISIBLE);
+        imageButtonOk.setVisibility(View.INVISIBLE);
+        imageButtonFb.setVisibility(View.INVISIBLE);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        buttonShowPassword = (Button) findViewById(R.id.buttonShowPassword);
-        textPassword = (EditText) findViewById(R.id.textPassword);
-        textEmail = (EditText) findViewById(R.id.textEmail);
-        buttonShowPassword.setOnClickListener(new View.OnClickListener() {
+         /*buttonShowPassword.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 textPassword.setTransformationMethod(null);
                 buttonShowPassword.setVisibility(View.INVISIBLE);
             }
         });
 
-        buttonForgotPassword = (Button) findViewById(R.id.buttonForgotPassword);
         buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, R.string.forgot,
@@ -69,48 +116,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        labelWrongPassword = (TextView) findViewById(R.id.labelWrongPassword);
-        buttonEnter = (Button) findViewById(R.id.buttonEnter);
+
         buttonEnter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signIn(textEmail.getText().toString(), textPassword.getText().toString());
             }
         });
 
-        buttonRegistration = (Button) findViewById(R.id.buttonRegistration);
         buttonRegistration.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 createAccount(textEmail.getText().toString(), textPassword.getText().toString());
             }
         });
 
-        buttonAutarisation = (Button) findViewById(R.id.buttonAutarisation);
         buttonAutarisation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signOut();
             }
         });
-        imageButtonBackArrow = (ImageButton) findViewById(R.id.imageButtonBackArrow);
+
         imageButtonBackArrow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signOut();
             }
         });
 
-        buttonUseVkOkFb = (Button) findViewById(R.id.buttonUseVkOkFb);
         buttonUseVkOkFb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 buttonUseVkOkFb.setVisibility(View.INVISIBLE);
-                imageUseVkOkFb = (ImageView) findViewById(R.id.imageUseVkOkFb);
                 imageUseVkOkFb.setVisibility(View.VISIBLE);
-                imageShadow = (ImageView) findViewById(R.id.imageShadow);
                 imageShadow.setVisibility(View.VISIBLE);
-
-                imageButtonVk = (ImageButton) findViewById(R.id.imageButtonVk);
                 imageButtonVk.setVisibility(View.VISIBLE);
-                imageButtonOk = (ImageButton) findViewById(R.id.imageButtonOk);
                 imageButtonOk.setVisibility(View.VISIBLE);
-                imageButtonFb = (ImageButton) findViewById(R.id.imageButtonFb);
                 imageButtonFb.setVisibility(View.VISIBLE);
 
                 imageShadow.setOnClickListener(new View.OnClickListener() {
@@ -121,10 +158,11 @@ public class MainActivity extends AppCompatActivity {
                         imageButtonVk.setVisibility(View.INVISIBLE);
                         imageButtonOk.setVisibility(View.INVISIBLE);
                         imageButtonFb.setVisibility(View.INVISIBLE);
+
                     }
                 });
             }
-        });
+        });*/
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -138,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
-
                 updateUI(null);
             }
         };
@@ -147,11 +184,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-       /*Glide.with(this).load(R.drawable.)
-               asBitmap().apply()
-               .bitmapTransform(new BlurTransformation(25))
-                .into((ImageView) findViewById(R.id.imageUseVkOkFb));*/
-
         mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -209,7 +241,6 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, R.string.sign_successfull,
                                     Toast.LENGTH_SHORT).show();
                             updateUI(mAuth.getCurrentUser());
-
                         }
                     }
                 });
@@ -242,26 +273,26 @@ public class MainActivity extends AppCompatActivity {
         } else {
             textPassword.setError(null);
         }
-        changeColorofButton(valid);
+        changeButtonEnter(valid);
         return valid;
     }
 
-    private void changeColorofButton(boolean valid) {
+    private void changeButtonEnter(boolean valid) {
         if (!valid) {
             buttonEnter.setText(R.string.emptyfields);
-            buttonEnter.setBackgroundColor(getResources().getColor(R.color.emptyfields));
+            buttonEnter.setBackgroundColor(getResources().getColor(R.color.colorEmptyFields));
         } else {
             buttonEnter.setText(R.string.enter);
-            buttonEnter.setBackgroundColor(getResources().getColor(R.color.myColorGreenRect));
+            buttonEnter.setBackgroundColor(getResources().getColor(R.color.colorGreen));
         }
     }
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            findViewById(R.id.buttonEnter).setVisibility(View.GONE);
+            buttonEnter.setVisibility(View.GONE);
             //findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
         } else {
-            findViewById(R.id.buttonEnter).setVisibility(View.VISIBLE);
+            buttonEnter.setVisibility(View.VISIBLE);
         }
     }
 }
