@@ -102,68 +102,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-         /*buttonShowPassword.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                textPassword.setTransformationMethod(null);
-                buttonShowPassword.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        buttonForgotPassword.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, R.string.forgot,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        buttonEnter.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                signIn(textEmail.getText().toString(), textPassword.getText().toString());
-            }
-        });
-
-        buttonRegistration.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                createAccount(textEmail.getText().toString(), textPassword.getText().toString());
-            }
-        });
-
-        buttonAutarisation.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                signOut();
-            }
-        });
-
-        imageButtonBackArrow.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                signOut();
-            }
-        });
-
-        buttonUseVkOkFb.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                buttonUseVkOkFb.setVisibility(View.INVISIBLE);
-                imageUseVkOkFb.setVisibility(View.VISIBLE);
-                imageShadow.setVisibility(View.VISIBLE);
-                imageButtonVk.setVisibility(View.VISIBLE);
-                imageButtonOk.setVisibility(View.VISIBLE);
-                imageButtonFb.setVisibility(View.VISIBLE);
-
-                imageShadow.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        buttonUseVkOkFb.setVisibility(View.VISIBLE);
-                        imageUseVkOkFb.setVisibility(View.INVISIBLE);
-                        imageShadow.setVisibility(View.INVISIBLE);
-                        imageButtonVk.setVisibility(View.INVISIBLE);
-                        imageButtonOk.setVisibility(View.INVISIBLE);
-                        imageButtonFb.setVisibility(View.INVISIBLE);
-
-                    }
-                });
-            }
-        });*/
-
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
