@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="com.example.gron.hunternet.ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imagePhotoBlur"
+        style="@android:style/Theme.Translucent"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:background="@color/colorWhite"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+        android:elevation="0dp"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="103dp"
+        tools:layout_width="360dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/empty"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowblack" />
+
+    <Button
+        android:id="@+id/buttonProfile"
+        android:layout_width="188dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="start"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/profile"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="104dp"
+        android:contentDescription="@string/empty"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_profile_pic" />
+
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="208dp"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="240dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/editprofile"
+        android:textColor="@color/colorGrey"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/greyLine1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="280dp"
+        android:background="@color/colorGreyLineProfile"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/greyLine2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="376dp"
+        android:background="@color/colorGreyLineProfile"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/greyLine3"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="432dp"
+
+        android:background="@color/colorGreyLineProfile"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/greyLine4"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="488dp"
+        android:background="@color/colorGreyLineProfile"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/greyLine5"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="584dp"
+        android:background="@color/colorGreyLineProfile"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageTelefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="296dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/empty"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/telefone_pic" />
+
+    <ImageView
+        android:id="@+id/imageEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="336dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/empty"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/email_pic" />
+
+
+    <TextView
+        android:id="@+id/textTelephoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="296dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="336dp"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonExitProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="590dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/exitprofile"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageExitProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="590dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/empty"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/exit_profile_pic" />
+
+    <Switch
+        android:id="@+id/switchVisibleForAll"
+        android:layout_width="297dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="392dp"
+        android:gravity="bottom|start|end"
+        android:text="@string/visibleforall"
+        android:theme="@style/MySwitch"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switchHideShowDataProfile"
+        android:layout_width="297dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="448dp"
+        android:gravity="bottom|start|end"
+        android:text="@string/hidedataprofile"
+        android:theme="@style/MySwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

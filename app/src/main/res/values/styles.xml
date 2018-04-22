@@ -7,6 +7,36 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="android:popupMenuStyle">@style/popupMenuStyle</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
+    <style name="MySwitch" parent="Theme.AppCompat.Light">
+        <!-- активное состояние (30% прозрачности для фона) -->
+        <item name="colorControlActivated">@color/colorGreenNormal</item>
+
+        <!-- неактивное состояние ползунка -->
+        <item name="colorSwitchThumbNormal">@color/colorGreenLight</item>
+        <item name="android:colorForeground">@color/colorGreenLight</item>
+    </style>
+
+    <style name="popupMenuStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:popupBackground">@color/colorGreyLine</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="colorPrimary">@color/colorGreenNavigation</item>
+        >
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="android:colorForeground">@color/colorGreenLight</item>
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" >
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorWhite</item>
 
     </style>
 

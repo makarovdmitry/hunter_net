@@ -20,4 +20,29 @@
     <string name="registration">Регистрация</string>
     <string name="empty"> </string>
     <string name="emptyfields">Не все поля заполнены</string>
+
+    <string name="profile">Профиль</string>
+    <string name="editprofile">Редактировать</string>
+    <string name="telephonenumber">+7 999 123 4500</string>
+    <string name="exitprofile">Выход</string>
+    <string name="hidedataprofile">Скрыть контактные данные</string>
+    <string name="nameofprofile">Михаил Дерябин</string>
+    <string name="visibleforall">Видимый для всех</string>
+
+    <string name="changephoto">Сменить фотографию</string>
+    <string name="privatedata">Личные данные</string>
+    <string name="name">Имя</string>
+    <string name="telephone">Телефон</string>
+    <string name="labelchangepassword">Сменить пароль</string>
+    <string name="save">Сохранить</string>
+    <string name="oldpassword">Старый пароль</string>
+    <string name="newpassword">Новый пароль</string>
+    <string name="repeat">Повторить</string>
+    <string name="title_activity_navigation">Карта Ульяновской обл.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>

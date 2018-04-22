@@ -1,6 +1,7 @@
 package com.example.gron.hunternet;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,12 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.EditText;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import android.support.annotation.NonNull;
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
+
 import android.util.Log;
 import android.widget.Toast;
 import android.text.TextUtils;
@@ -24,9 +22,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends MvpAppCompatActivity implements MainView {
 
-    private static final String TAG = "EmailPassword";
+    @InjectPresenter
+    MainPresenter presenter;
+
+    public static final String TAG = "MainActivity";
+
 
     @BindView(R.id.labelWrongPassword) TextView labelWrongPassword;
     @BindView(R.id.textPassword) EditText textPassword;
@@ -45,13 +47,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.imageUseVkOkFb) ImageView imageUseVkOkFb;
     @BindView(R.id.imageShadow) ImageView imageShadow;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
     @OnClick(R.id.buttonForgotPassword)
     public void onClickButtonForgotPassword(View v) {
-        Toast.makeText(MainActivity.this, R.string.forgot,
-                Toast.LENGTH_SHORT).show();
+        showToast(R.string.forgot);
     }
 
     @OnClick(R.id.buttonShowPassword)
@@ -67,12 +65,17 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.buttonRegistration)
     public void onClickButtonRegistration(View v) {
-        createAccount(textEmail.getText().toString(), textPassword.getText().toString());
+        String email=textEmail.getText().toString();
+        Log.d(TAG, "createAccount:" + email);
+        if (!validateForm()) {
+            return;
+        }
+        presenter.createAccount(email, textPassword.getText().toString());
     }
 
     @OnClick({R.id.imageButtonBackArrow, R.id.buttonAutarisation})
     public void onClickLogOut(View v) {
-        signOut();
+        presenter.signOut();
     }
 
     @OnClick(R.id.buttonUseVkOkFb)
@@ -101,95 +104,46 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-                updateUI(null);
-            }
-        };
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        presenter.addAuthStateListener();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
+        presenter.removeAuthStateListener();
+    }
+    public void showToast(int rstring) {
+        Toast.makeText(MainActivity.this, rstring,
+                     Toast.LENGTH_SHORT).show();
     }
 
-    private void createAccount(String email, String password) {
+    public void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
         if (!validateForm()) {
             return;
         }
-
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(MainActivity.this, R.string.auth_successfull,
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        } else {
-                            Toast.makeText(MainActivity.this, R.string.auth_failed,
-                            Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
-
+        presenter.createAccount(email, password);
     }
 
-    private void signIn(String email, String password) {
+    public void signIn(String email, String password) {
         Log.d(TAG, "signIn:" + email);
         if (!validateForm()) {
             return;
         }
-
-
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-                        if (!task.isSuccessful()) {
-                            Log.w(TAG, "signInWithEmail:failed", task.getException());
-                            Toast.makeText(MainActivity.this, R.string.sign_failed,
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, R.string.sign_successfull,
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(mAuth.getCurrentUser());
-                        }
-                    }
-                });
+        presenter.signIn(email, password);
     }
 
-    private void signOut() {
-        if (mAuth.getCurrentUser()!=null) {
-            mAuth.signOut();
-            Toast.makeText(MainActivity.this, R.string.signout,
-                    Toast.LENGTH_SHORT).show();
-            updateUI(null);
-        }
+    public void startNewActivity() {
+        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+        startActivity(intent);
     }
+
 
     private boolean validateForm() {
         boolean valid = true;
@@ -220,15 +174,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             buttonEnter.setText(R.string.enter);
             buttonEnter.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-        }
-    }
-
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
-            buttonEnter.setVisibility(View.GONE);
-            //findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
-        } else {
-            buttonEnter.setVisibility(View.VISIBLE);
         }
     }
 }

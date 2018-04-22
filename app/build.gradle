@@ -9,6 +9,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
     }
     buildTypes {
         release {
@@ -19,19 +21,31 @@ android {
 }
 
 dependencies {
+    ext.support_version = '12.0.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     //implementation 'jp.wasabeef:glide-transformations:3.1.1'
+    implementation 'com.android.support:design:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.google.firebase:firebase-core:11.8.0'
-    compile 'com.google.firebase:firebase-auth:11.8.0'
+    implementation 'com.google.firebase:firebase-core:12.0.1'
+    implementation 'com.google.firebase:firebase-auth:12.0.1'
+    implementation 'com.google.firebase:firebase-firestore:12.0.1'
+    implementation 'com.google.firebase:firebase-storage:12.0.1'
+
+    implementation 'com.google.android.gms:play-services-maps:12.0.1'
     //compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.arello-mobile:moxy:1.5.3'
+    annotationProcessor 'com.arello-mobile:moxy-compiler:1.5.3'
+    implementation 'com.arello-mobile:moxy-android:1.5.3'
+    implementation 'com.arello-mobile:moxy-app-compat:1.5.3'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "ru.tinkoff.decoro:decoro:1.1.1"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 apply plugin: 'com.google.gms.google-services'
-//apply plugin: 'com.jakewharton.butterknife'
-

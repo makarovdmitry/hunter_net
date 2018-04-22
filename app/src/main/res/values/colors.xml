@@ -8,8 +8,14 @@
     <color name="colorBlack">#252423</color>
     <color name="colorGreen">#7bcb57</color>
     <color name="colorGreyLine">#d8d8d8</color>
+    <color name="colorGrey">#a0a0a0</color>
     <color name="colorVK">#45668e</color>
     <color name="colorOK">#F2720C</color>
     <color name="colorFB">#3b5998</color>
     <color name="colorEmptyFields">#4c4c4c</color>
+    <color name="colorGreyLineProfile">#e0e0e0</color>
+    <color name="colorGreenLight">#d1e5bd</color>
+    <color name="colorGreenNormal">#a3cc7c</color>
+    <color name="colorGreenNavigation">#6db94b</color>
+
 </resources>

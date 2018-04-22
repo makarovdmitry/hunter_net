@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="com.example.gron.hunternet.EditProfileActivity">
+
+    <ImageView
+        android:id="@+id/imagePhotoBlur"
+        style="@android:style/Theme.Translucent"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:adjustViewBounds="true"
+        android:alpha="0.5"
+        android:background="@color/colorWhite"
+        android:contentDescription="@string/empty"
+        android:cropToPadding="false"
+        android:elevation="0dp"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_height="103dp"
+        tools:layout_width="360dp" />
+
+    <ImageButton
+        android:id="@+id/imageButtonBackArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/empty"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrowblack" />
+
+    <Button
+        android:id="@+id/buttonProfile"
+        android:layout_width="188dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="start"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/editprofile"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="18sp"
+        android:textStyle="normal"
+
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageProfile"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="104dp"
+        android:contentDescription="@string/empty"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/default_profile_pic"
+        />
+
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="208dp"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonChangePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="240dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/changephoto"
+        android:textColor="@color/colorGrey"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textPrivateData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="300dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/privatedata"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="344dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/name"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelTelephone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="424dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/telephone"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="504dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/email"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="12sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="608dp"
+        android:fontFamily="sans-serif"
+        android:gravity="start"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/labelchangepassword"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/textNameLastNameProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="360dp"
+        android:focusableInTouchMode="true"
+        android:inputType="textCapWords|textPersonName"
+        android:labelFor="@+id/textNameLastNameProfile"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <EditText
+        android:id="@+id/textTelephoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="440dp"
+        android:inputType="phone"
+        android:labelFor="@+id/textPhone"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <EditText
+        android:id="@+id/textEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="520dp"
+        android:inputType="textEmailAddress"
+        android:labelFor="@+id/textEmail"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <EditText
+        android:id="@+id/textOldPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="664dp"
+        android:hint="@string/oldpassword"
+        android:inputType="textPassword"
+        android:labelFor="@+id/textOldPassword"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <EditText
+        android:id="@+id/textNewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="744dp"
+        android:hint="@string/newpassword"
+        android:inputType="textPassword"
+        android:labelFor="@+id/textNewPassword"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <EditText
+        android:id="@+id/textRepeatPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="824dp"
+        android:hint="@string/repeat"
+        android:inputType="textPassword"
+        android:labelFor="@+id/textRepeatPassword"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/empty"
+        android:textColor="@color/colorEmptyFields"
+        android:textSize="20sp"
+
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="44dp"
+        tools:layout_width="153dp" />
+
+    <Button
+        android:id="@+id/buttonShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="670dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="bottom|end"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/show"
+        android:textColor="#a9a9a9"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="570dp"
+        android:background="@drawable/rounded_button_save"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="16sp"
+        android:text="@string/save"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
