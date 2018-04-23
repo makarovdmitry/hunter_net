@@ -32,7 +32,11 @@ class User {
 
     private static User user;
     private User(Callback callback){
-        this.profilePresenterCall = callback;
+        profilePresenterCall = callback;
+        name = "";
+        email = "";
+        telephoneNumber = "";
+        imageProfile = null;
         loadDataProfile();
     }
 
@@ -53,6 +57,7 @@ class User {
     }
 
     public void loadDataProfile() {
+        profilePresenterCall.showProgressLoad();
         email = MainPresenter.mAuth.getCurrentUser().getEmail().toString();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
@@ -103,7 +108,7 @@ class User {
     }
 
     public void saveDataProfile() {
-
+        profilePresenterCall.showProgressLoad();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setPersistenceEnabled(true)
@@ -127,11 +132,12 @@ class User {
                         Log.w(TAG, "Error writing document", e);
                     }
                 });
-
+        profilePresenterCall.hideProgressLoad();
     }
 
 
     public void saveImageProfile() {
+        profilePresenterCall.showProgressLoad();
         Bitmap bitmap=imageProfile;
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference storageRef = storage.getReference();
@@ -151,8 +157,10 @@ class User {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                profilePresenterCall.hideProgressLoad();
                 profilePresenterCall.finishSaveImageProfile();
             }
         });
+
     }
 }

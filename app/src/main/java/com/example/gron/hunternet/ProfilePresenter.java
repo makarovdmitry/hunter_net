@@ -50,6 +50,7 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> implements Callb
     @Override
     public void applyDataToActivity() {
         getViewState().loadProfile(User.email, User.name, User.telephoneNumber, User.imageProfile);
+        getViewState().hideProgressLoad();
     }
 
 
@@ -67,6 +68,14 @@ public class ProfilePresenter extends MvpPresenter<ProfileView> implements Callb
     @Override
     public void finishSaveImageProfile() {
         getViewState().startNextActivity();
+    }
+
+    public void showProgressLoad() {
+        getViewState().showProgressLoad();
+    }
+
+    public void hideProgressLoad() {
+        getViewState().hideProgressLoad();
     }
 
     public void setImageProfile(Bitmap bitmap) {

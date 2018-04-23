@@ -311,4 +311,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/fb" android:contentDescription="@string/empty" />
 
+    <ProgressBar
+        android:id="@+id/progressLoad"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="344dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

@@ -14,6 +14,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +44,8 @@ public class ProfileActivity extends MvpAppCompatActivity implements ProfileView
     @BindView(R.id.imagePhotoBlur) ImageView imagePhotoBlur;
     @BindView(R.id.imageButtonBackArrow) ImageButton imageButtonBackArrow;
     @BindView(R.id.buttonProfile) Button buttonProfile;
-    @BindView(R.id.switchHideShowDataProfile)   Switch switchHideShowDataProfile;
+    @BindView(R.id.switchHideShowDataProfile) Switch switchHideShowDataProfile;
+    @BindView(R.id.progressLoad) ProgressBar progressLoad;
 
     @OnClick(R.id.buttonEditProfile)
     public void onClickButtonEditProfile(View v) {
@@ -100,6 +102,15 @@ public class ProfileActivity extends MvpAppCompatActivity implements ProfileView
             imagePhotoBlur.setImageBitmap(imageProfile.getDrawingCache());
         }
 
+    }
+    @Override
+    public void hideProgressLoad() {
+        progressLoad.setVisibility(ProgressBar.INVISIBLE);
+        buttonEditProfile.setVisibility(View.VISIBLE);
+    }
+    @Override
+    public void showProgressLoad() {
+        progressLoad.setVisibility(ProgressBar.VISIBLE);
     }
 
     @Override

@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,6 +69,7 @@ public class EditProfileActivity extends MvpAppCompatActivity implements Profile
     @BindView(R.id.textTelephoneNumber) EditText textTelephoneNumber;
     @BindView(R.id.textProfile) TextView textProfile;
     @BindView(R.id.textNameLastNameProfile) TextView textNameLastNameProfile;
+    @BindView(R.id.progressLoad) ProgressBar progressLoad;
 
     @OnClick(R.id.imageButtonBackArrow)
     public void onClickImageButtonBackArrow(View v) {
@@ -99,6 +101,15 @@ public class EditProfileActivity extends MvpAppCompatActivity implements Profile
     @Override
     public void startNextActivity() {
         finish();
+    }
+
+    @Override
+    public void hideProgressLoad() {
+        progressLoad.setVisibility(ProgressBar.INVISIBLE);
+    }
+    @Override
+    public void showProgressLoad() {
+        progressLoad.setVisibility(ProgressBar.VISIBLE);
     }
 
     @Override

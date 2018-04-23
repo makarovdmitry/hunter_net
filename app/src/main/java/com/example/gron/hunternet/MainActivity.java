@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.EditText;
 
@@ -46,6 +47,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @BindView(R.id.imageButtonBackArrow) ImageButton imageButtonBackArrow;
     @BindView(R.id.imageUseVkOkFb) ImageView imageUseVkOkFb;
     @BindView(R.id.imageShadow) ImageView imageShadow;
+    @BindView(R.id.progressLoad) ProgressBar progressLoad;
 
     @OnClick(R.id.buttonForgotPassword)
     public void onClickButtonForgotPassword(View v) {
@@ -60,6 +62,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     @OnClick(R.id.buttonEnter)
     public void onClickButtonEnter(View v) {
+        progressLoad.setVisibility(ProgressBar.VISIBLE);
         signIn(textEmail.getText().toString(), textPassword.getText().toString());
     }
 
@@ -120,7 +123,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     }
     public void showToast(int rstring) {
         Toast.makeText(MainActivity.this, rstring,
-                     Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_SHORT).show();
     }
 
     public void createAccount(String email, String password) {
@@ -140,6 +143,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     }
 
     public void startNewActivity() {
+        progressLoad.setVisibility(ProgressBar.INVISIBLE);
         Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
         startActivity(intent);
     }
