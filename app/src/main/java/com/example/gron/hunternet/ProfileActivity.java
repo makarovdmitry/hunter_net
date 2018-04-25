@@ -17,17 +17,11 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
-import butterknife.OnItemSelected;
-import ru.tinkoff.decoro.MaskImpl;
-import ru.tinkoff.decoro.slots.PredefinedSlots;
-import ru.tinkoff.decoro.watchers.FormatWatcher;
-import ru.tinkoff.decoro.watchers.MaskFormatWatcher;
 
 
 public class ProfileActivity extends MvpAppCompatActivity implements ProfileView {

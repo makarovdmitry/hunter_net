@@ -1,7 +1,9 @@
 package com.example.gron.hunternet;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,8 +19,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,8 +34,22 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+import butterknife.BindView;
+
+public class NavigationActivity extends MvpAppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback, NavView {
+
+    @InjectPresenter
+    NavigationPresenter presenter;
+
+    TextView textEmail;
+    TextView textProfile;
+    ImageView imageProfile;
+    NavigationView navigationView;
+
+
+
+
 
     private GoogleMap mMap;
 
@@ -85,11 +106,19 @@ public class NavigationActivity extends AppCompatActivity
         }
     }
 
+    View.OnClickListener profileClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(NavigationActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -103,17 +132,39 @@ public class NavigationActivity extends AppCompatActivity
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.openDrawer(GravityCompat.START);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        textEmail = navigationView.getHeaderView(0).findViewById(R.id.textEmail);
+        textEmail.setOnClickListener(profileClickListener);
+        imageProfile = navigationView.getHeaderView(0).findViewById(R.id.imageProfile);
+        imageProfile.setOnClickListener(profileClickListener);
+        textProfile = navigationView.getHeaderView(0).findViewById(R.id.textProfile);
+        textProfile.setOnClickListener(profileClickListener);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+
+
+    @Override
+    public void loadProfile(String email, String name, Bitmap bmp ) {
+        textEmail.setText(email);
+        textProfile.setText(name);
+        if (bmp!=null) {
+            imageProfile.setImageBitmap(bmp);
+            //imagePhotoBlur.setImageBitmap(BlurBuilder.blur(this, bmp));
+        } else {
+            //imagePhotoBlur.setImageBitmap(imageProfile.getDrawingCache());
+        }
     }
 
     @Override
@@ -155,7 +206,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.map) {
-            // Handle the camera action
+
         } else if (id == R.id.dialogs) {
 
         }
