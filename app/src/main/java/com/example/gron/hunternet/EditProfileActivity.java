@@ -88,6 +88,7 @@ public class EditProfileActivity extends MvpAppCompatActivity implements Profile
             return;
         }
         if (!presenter.validateUrl(textEmail.getText().toString())) {
+            // TODO строки должны быть в константах
             textEmail.setError("Возможно опечатка в почте");
             return;
         }

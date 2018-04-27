@@ -83,6 +83,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     @OnClick(R.id.buttonUseVkOkFb)
     public void onClickButtonUseVkOkFb(View v) {
+        // TODO логикой такого типа как раз и должен заниматься презентер
+        // то есть у него должен быть метод, срабатывающий на нажатие,
+        // а дальше он уже сам решает, что скрыть, что показать
         buttonUseVkOkFb.setVisibility(View.INVISIBLE);
         imageUseVkOkFb.setVisibility(View.VISIBLE);
         imageShadow.setVisibility(View.VISIBLE);

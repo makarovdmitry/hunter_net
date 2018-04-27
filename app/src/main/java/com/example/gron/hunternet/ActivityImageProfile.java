@@ -16,6 +16,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 
+// TODO Класс нигде не используется и непонятно какую сущность вообще представляет
 public class ActivityImageProfile {
     Activity activity;
     String email;

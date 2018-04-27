@@ -25,6 +25,7 @@ class User {
     private static Callback profilePresenterCall;
     private static final String TAG = "User";
 
+    // TODO а почему эти поля статические? вполне могут быть членом класса
     public  static String name;
     public static String email;
     public  static String telephoneNumber;
@@ -40,6 +41,7 @@ class User {
         loadDataProfile();
     }
 
+    // TODO пользователя не нужно делать синглтоном
     public static User getInstance(Callback callback)
     {
         if (user == null)
@@ -56,6 +58,7 @@ class User {
         return user;
     }
 
+    // TODO это явно не задача пользователя загружать самого себя из сети
     public void loadDataProfile() {
         profilePresenterCall.showProgressLoad();
         email = MainPresenter.mAuth.getCurrentUser().getEmail().toString();
