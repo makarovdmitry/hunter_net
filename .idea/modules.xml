@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HunterNet.iml" filepath="$PROJECT_DIR$/HunterNet.iml" />
+      <module fileurl="file://C:\D\Projects\final_courses\makarov\HunterNet.iml" filepath="C:\D\Projects\final_courses\makarov\HunterNet.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/makarov.iml" filepath="$PROJECT_DIR$/makarov.iml" />
     </modules>
   </component>
 </project>
